@@ -2,6 +2,7 @@ package com.example.ejemplowidgets
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import com.example.ejemplowidgets.databinding.ActivityMainBinding
@@ -9,6 +10,9 @@ import com.example.ejemplowidgets.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
+    val teamNames = arrayListOf<String>("Liverpool","Realmadrid","Chelsea","Atletico de Madrid")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +32,10 @@ class MainActivity : AppCompatActivity() {
                 changeTeam("realmadrid")
 
         }
+        //conectar la lista con el arreglo de datos usuando un adaptador
+        val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,teamNames)
+        binding.teamsList.adapter = adapter
+
 
         binding.teamsList.setOnItemClickListener { adapterView, view, i, l ->
             println("adapterView: $adapterView \n" +
