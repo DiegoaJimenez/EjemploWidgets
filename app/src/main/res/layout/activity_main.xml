@@ -17,19 +17,56 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <ImageButton
+        <Button
             android:id="@+id/btnLiverpool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Liverpool"
-            android:src="@drawable/liverpool"/>
+            android:text="Liverpool"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/btnRealmadrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Real Madrid"
-            android:src="@drawable/realmadrid"/>
+            android:text="Real Madrid"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutrdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layoutButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rdbtnliverpool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="liverpool"/>
+
+            <RadioButton
+                android:id="@+id/rdbtnrealmadrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="realmadrid"/>
+
+        </RadioGroup>
+
+        <Switch
+            android:id="@+id/swtTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Liverpool"
+            android:textOn="Realmadrid"/>
+
 
     </LinearLayout>
     <ImageView
@@ -38,6 +75,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutButton"
+        app:layout_constraintTop_toBottomOf="@id/layoutrdButton"
         app:srcCompat="@drawable/liverpool" />
 </androidx.constraintlayout.widget.ConstraintLayout>

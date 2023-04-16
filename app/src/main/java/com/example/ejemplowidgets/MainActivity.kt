@@ -16,6 +16,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnLiverpool.setOnClickListener { changeTeam("liverpool") }
         binding.btnRealmadrid.setOnClickListener { changeTeam("realmadrid") }
+
+        binding.rdbtnliverpool.setOnClickListener { changeTeam("liverpool") }
+        binding.rdbtnrealmadrid.setOnClickListener { changeTeam("realmadrid") }
+
+        binding.swtTeam.setOnClickListener {
+            if(binding.swtTeam.isChecked)
+                changeTeam("liverpool")
+            else
+                changeTeam("realmadrid")
+
+        }
     }
 
     fun changeTeam(teamName:String){
