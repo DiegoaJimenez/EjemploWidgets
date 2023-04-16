@@ -17,17 +17,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnLiverpool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Liverpool"/>
+            android:text="Liverpool"
+            android:src="@drawable/liverpool"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btnRealmadrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Real Madrid"/>
+            android:text="Real Madrid"
+            android:src="@drawable/realmadrid"/>
 
     </LinearLayout>
     <ImageView
