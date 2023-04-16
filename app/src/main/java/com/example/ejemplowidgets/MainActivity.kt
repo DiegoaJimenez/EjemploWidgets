@@ -2,6 +2,7 @@ package com.example.ejemplowidgets
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.example.ejemplowidgets.databinding.ActivityMainBinding
 
@@ -26,6 +27,16 @@ class MainActivity : AppCompatActivity() {
             else
                 changeTeam("realmadrid")
 
+        }
+
+        binding.teamsList.setOnItemClickListener { adapterView, view, i, l ->
+            println("adapterView: $adapterView \n" +
+                    "view: $view \n" +
+                    "position: $i \n"+
+                    "id: $l"
+            )
+            val tv = view as TextView
+            changeTeam(tv.text.toString().lowercase())
         }
     }
 
