@@ -6,7 +6,10 @@ plugins {
 android {
     namespace 'com.example.ejemplowidgets'
     compileSdk 33
-    
+
+    buildFeatures{
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.example.ejemplowidgets"
