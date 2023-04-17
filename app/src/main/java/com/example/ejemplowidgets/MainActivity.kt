@@ -10,7 +10,10 @@ import com.example.ejemplowidgets.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
+    lateinit var adapter:TemasListAdapter
     val teamNames = arrayListOf<String>("Liverpool","Realmadrid","Chelsea","Atletico de Madrid")
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
         //conectar la lista con el arreglo de datos usuando un adaptador
         //val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,teamNames)
-        val adapter = TemasListAdapter(this,R.layout.list_teams,teamNames)
+        adapter = TemasListAdapter(this,R.layout.list_teams,teamNames)
         binding.teamsList.adapter = adapter
 
 
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this,"You choose ${teamName.capitalize()}",Toast.LENGTH_SHORT).show()
         val id = resources.getIdentifier(teamName,"drawable",packageName)
         binding.imgTeam.setImageResource(id)
+        teamNames.add("Otro equipo")
+        adapter.notifyDataSetChanged()
 
     }
 }
