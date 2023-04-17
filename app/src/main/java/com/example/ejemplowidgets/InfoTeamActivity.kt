@@ -4,20 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.ejemplowidgets.databinding.ActivityInfoTeamBinding
 
 class InfoTeamActivity : AppCompatActivity() {
+
+    lateinit var binding:ActivityInfoTeamBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_info_team)
+        binding = ActivityInfoTeamBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val team = intent.getSerializableExtra("TEAM_DATA") as TeamInfo
-        val textView = findViewById<TextView>(R.id.teamName2)
-        textView.text = team.name
-
-        val originText = findViewById<TextView>(R.id.teamOrigin)
-        originText.text = "${team.country},${team.founded}"
-
-        val flagImage = findViewById<ImageView>(R.id.teamFlag)
-        flagImage.setImageResource(team.flag)
+        binding.teamName2.text = team.name
+        binding.teamOrigin.text = "${team.country},${team.founded}"
+        binding.teamFlag.setImageResource(team.flag)
     }
 }
