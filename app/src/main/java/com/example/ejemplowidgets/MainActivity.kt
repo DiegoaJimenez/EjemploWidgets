@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         }
         //conectar la lista con el arreglo de datos usuando un adaptador
-        val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,teamNames)
+        //val adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,teamNames)
+        val adapter = TemasListAdapter(this,R.layout.list_teams,teamNames)
         binding.teamsList.adapter = adapter
 
 
@@ -43,8 +44,7 @@ class MainActivity : AppCompatActivity() {
                     "position: $i \n"+
                     "id: $l"
             )
-            val tv = view as TextView
-            changeTeam(tv.text.toString().lowercase())
+            changeTeam(teamNames[i].lowercase())
         }
     }
 
