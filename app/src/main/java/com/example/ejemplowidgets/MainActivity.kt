@@ -12,7 +12,10 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
     lateinit var adapter:TemasListAdapter
-    val teamNames = arrayListOf<String>("Liverpool","Realmadrid","Chelsea","Atletico de Madrid")
+    val teamNames = arrayListOf(
+        TeamInfo("Liverpool",R.drawable.liverpool,"United Kingdom","1892"),
+        TeamInfo("Real Madrid",R.drawable.realmadrid,"Spain","1910")
+        )
 
 
 
@@ -50,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     "id: $l"
             )
             //changeTeam(teamNames[i].lowercase())
-            openTeamInfoActivity(teamNames[i])
+            openTeamInfoActivity(teamNames[i].name)
         }
     }
 
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this,"You choose ${teamName.capitalize()}",Toast.LENGTH_SHORT).show()
         val id = resources.getIdentifier(teamName,"drawable",packageName)
         binding.imgTeam.setImageResource(id)
-        teamNames.add("Otro equipo")
+        teamNames.add(TeamInfo("Millonarios",0,"Colombia","1946"))
         adapter.notifyDataSetChanged()
     }
 
