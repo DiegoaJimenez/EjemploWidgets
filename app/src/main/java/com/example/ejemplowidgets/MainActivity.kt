@@ -1,5 +1,6 @@
 package com.example.ejemplowidgets
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        println(intent)
         binding.imgTeam.setImageResource(R.drawable.realmadrid)
 
         binding.btnLiverpool.setOnClickListener { changeTeam("liverpool") }
@@ -47,7 +49,8 @@ class MainActivity : AppCompatActivity() {
                     "position: $i \n"+
                     "id: $l"
             )
-            changeTeam(teamNames[i].lowercase())
+            //changeTeam(teamNames[i].lowercase())
+            openTeamInfoActivity(teamNames[i])
         }
     }
 
@@ -57,6 +60,12 @@ class MainActivity : AppCompatActivity() {
         binding.imgTeam.setImageResource(id)
         teamNames.add("Otro equipo")
         adapter.notifyDataSetChanged()
+    }
+
+    fun openTeamInfoActivity(teamName:String){
+        val teamInfoIntent = Intent(this,InfoTeamActivity::class.java)
+        teamInfoIntent.putExtra("TEAM_NAME",teamName)
+        startActivity(teamInfoIntent)
 
     }
 }
