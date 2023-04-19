@@ -1,6 +1,7 @@
 package com.example.ejemplowidgets
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -13,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
     lateinit var adapter:TemasListAdapter
     val teamNames = arrayListOf(
-        TeamInfo("Liverpool",R.drawable.liverpool,"United Kingdom","1892"),
-        TeamInfo("Real Madrid",R.drawable.realmadrid,"Spain","1910")
+        TeamInfo("Liverpool",R.drawable.liverpool,"United Kingdom","1892","https://www.liverpoolfc.com","geo:53.4308294,-2.9634049z=17"),
+        TeamInfo("Real Madrid",R.drawable.realmadrid,"Spain","1910","https://www.realmadrid.com/en","geo:21.0851735,-60.5453569z=4")
         )
 
 
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this,"You choose ${teamName.capitalize()}",Toast.LENGTH_SHORT).show()
         val id = resources.getIdentifier(teamName,"drawable",packageName)
         binding.imgTeam.setImageResource(id)
-        teamNames.add(TeamInfo("Millonarios",0,"Colombia","1946"))
+        teamNames.add(TeamInfo("Millonarios",0,"Colombia","1946","http://google.com","ere"))
         adapter.notifyDataSetChanged()
     }
 
